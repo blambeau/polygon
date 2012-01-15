@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 group :runtime do
   gem "sinatra", "~> 1.3.1"
-  gem "epath", "~> 0.0.1"
+  gem "epath", :git => "https://github.com/eregon/epath.git"
   gem "json", ">=0"
 end
 
