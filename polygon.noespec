@@ -1,5 +1,5 @@
 template-info:
-  name: "ruby"
+  name: "rubygem.noe"
   version: 1.7.0
 variables:
   lower:
@@ -19,7 +19,7 @@ variables:
     - http://github.com/blambeau/polygon
   dependencies:
     - {name: sinatra,   version: "~> 1.3.1",  groups: [runtime]}
-    - {name: epath,     version: "~> 0.0.1",  groups: [runtime]}
+    - {name: epath,     version: "~> 0.2.0",  groups: [runtime]}
     - {name: json,      version: ">=0",       groups: [runtime]}
     - {name: wlang,     version: "~> 0.10.2", groups: [runtime]}
     - {name: rake,      version: "~> 0.9.2",  groups: [development]}

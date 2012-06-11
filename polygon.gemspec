@@ -129,7 +129,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency("yard", "~> 0.7.2")
   s.add_development_dependency("bluecloth", "~> 2.2.0")
   s.add_dependency("sinatra", "~> 1.3.1")
-  s.add_dependency("epath", "~> 0.0.1")
+  s.add_dependency("epath", "~> 0.2.0")
   s.add_dependency("json", ">=0")
   s.add_dependency("wlang", "~> 0.10.2")
 
