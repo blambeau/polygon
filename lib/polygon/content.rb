@@ -111,19 +111,14 @@ module Polygon
         when Array
           (right | left).uniq
         when Hash
-          left.merge(right){|k,l,r|
-            merge(l,r)
-          }
+          left.merge(right){|k,l,r| merge(l,r)}
         else
           right
         end
       end
 
       def data
-        loader.load(path).merge({
-          "__path__" => path, 
-          "__url__"  => path.relative_to(content.path).to_s[0..-(path.extname.length+1)]
-        })
+        loader.load(path)
       end
 
     end # class Entry
