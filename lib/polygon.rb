@@ -20,4 +20,3 @@ require 'polygon/content_loader'
 require 'polygon/content'
 require 'polygon/helpers'
 require 'polygon/base'
-
