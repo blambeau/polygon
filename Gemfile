@@ -5,6 +5,7 @@ group :runtime do
   gem "sinatra", :git => "git://github.com/sinatra/sinatra"
   gem "wlang", "~> 2.0"
   gem "alf", "~> 0.12.2"
+  gem "quickl", "~> 0.4.2"
 end
 
 group :development do

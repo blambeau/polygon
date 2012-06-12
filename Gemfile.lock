@@ -54,6 +54,7 @@ DEPENDENCIES
   bluecloth (~> 2.2)
   bundler (~> 1.0)
   json
+  quickl (~> 0.4.2)
   rake (~> 0.9.2)
   rspec (~> 2.10)
   sinatra!
