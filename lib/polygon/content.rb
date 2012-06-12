@@ -6,13 +6,9 @@ module Polygon
     # Root of the content folders
     attr_reader :path
 
-    # Underlying content loader
-    attr_reader :loader
-
     # Creates a Content instance
-    def initialize(path, loader = Polygon.default_loader)
+    def initialize(path)
       @path = path
-      @loader = loader
     end
 
     def entry(path)
@@ -118,7 +114,7 @@ module Polygon
       end
 
       def data
-        loader.load(path)
+        Path(path).load
       end
 
     end # class Entry

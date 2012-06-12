@@ -4,11 +4,8 @@ module Polygon
     include Helper
 
     def setup
-      @root   = Path.dir/"../fixtures"
-      @loader = ContentLoader.new
-      @loader.enable_yaml!(".yml")
-      @loader.enable_yaml_front_matter!(".md")
-      @content  = Content.new(@root, @loader)
+      @root    = Path.dir/"../fixtures"
+      @content = Content.new(@root)
     end
 
     def assert_entry(entry)
