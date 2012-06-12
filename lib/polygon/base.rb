@@ -2,11 +2,10 @@ module Polygon
   class Base < Sinatra::Base
 
     configure do
-      set :static,        Proc.new { root && root / 'content/static'  }
-      set :public_folder, Proc.new { root && root / 'content/static'  }
-      set :dynamic,       Proc.new { root && root / 'content/dynamic' }
-      set :views,         Proc.new { root && root / 'design/views'    }
-      set :database,      Proc.new { Database.new(dynamic)            }
+      set :public_folder, Proc.new { 'content/static'                }
+      set :views,         Proc.new { 'design/views'                  }
+      set :database,      Proc.new { Database.new('content/dynamic') }
+      set :wlang,         :layout => :"layouts/html5"
       enable  :logging
       enable  :raise_errors
       disable :show_exceptions
