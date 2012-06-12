@@ -8,7 +8,7 @@ module Polygon
       let(:filter){ false }
       let(:entry){ Entry.new(Path.dir, Path.here % Path.dir) }
       it "should contain all index files" do
-        expected = Entry.index_files.map{|index|
+        expected = entry.index_files.map{|index|
           Entry.new(Path.dir, index)
         } + [ entry ]
         subject.should eq(expected)
@@ -25,7 +25,7 @@ module Polygon
 
     context 'when the root and not filtered' do
       let(:filter){ false }
-      let(:entry){ Entry.new(Path.dir, Entry.index_file(0)) }
+      let(:entry){ Entry.new(Path.dir, 'index.yml') }
       it "should be the singleton" do
         subject.should eq([entry])
       end
@@ -33,7 +33,7 @@ module Polygon
 
     context 'when the root and filtered' do
       let(:filter){ true }
-      let(:entry){ Entry.new(Path.dir, Entry.index_file(0)) }
+      let(:entry){ Entry.new(Path.dir, "index.yml") }
       it "should be empty" do
         subject.should eq([])
       end

@@ -1,10 +1,12 @@
 module Polygon
   class Entry
 
-    attr_reader :root, :relative_path
+    attr_reader :root, :relative_path, :options
 
-    def initialize(root, relative_path)
-      @root, @relative_path = Path(root), Path(relative_path)
+    def initialize(root, relative_path, options = {})
+      @root          = Path(root)
+      @relative_path = Path(relative_path)
+      @options       = options
     end
 
     def path
@@ -20,7 +22,7 @@ module Polygon
     end
 
     def /(path)
-      entry = Entry.new(root, self.relative_path / path)
+      entry = Entry.new(root, self.relative_path / path, options)
       if entry.path.inside?(root)
         entry
       else
@@ -33,10 +35,10 @@ module Polygon
         return nil unless base = self/".."
         idx = -1
         if index?
-          idx = Entry.index_files.index(path.basename.to_s) - 1
+          idx = index_files.index(path.basename.to_s) - 1
           base = base/".." if idx == -1
         end
-        base ? base/Entry.index_files[idx] : nil
+        base ? base/index_files[idx] : nil
       end
     end
 
@@ -47,7 +49,7 @@ module Polygon
 
     def to_hash
       ancestors_or_self(true).inject({}) do |h,entry|
-        Entry.merge(h, entry.data)
+        merge(h, entry.data)
       end
     end
 
@@ -59,19 +61,9 @@ module Polygon
       path.hash
     end
 
-    def self.extensions
-      Path::LOADERS.keys
-    end
+  protected
 
-    def self.index_files
-      extensions.map{|ext| "index.#{ext}"}
-    end
-
-    def self.index_file(i = 0)
-      index_files[i]
-    end
-
-    def self.merge(left, right)
+    def merge(left, right)
       raise "Unexpected #{left.class} vs. #{right.class}" \
         unless left.class == right.class
       case left
@@ -84,7 +76,17 @@ module Polygon
       end
     end
 
-  protected
+    def extensions
+      options[:extensions] || ["yml", "md"]
+    end
+
+    def index_files
+      extensions.map{|ext| "index.#{ext}"}
+    end
+
+    def index_file(i = 0)
+      index_files[i]
+    end
 
     def data
       path.load
