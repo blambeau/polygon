@@ -128,9 +128,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency("rspec", "~> 2.10")
   s.add_development_dependency("yard", "~> 0.7.2")
   s.add_development_dependency("bluecloth", "~> 2.2")
-  s.add_dependency("sinatra", "~> 1.3")
-  s.add_dependency("epath", "~> 0.2.0")
   s.add_dependency("json", ">= 0")
+  s.add_dependency("sinatra", "~> 1.3")
   s.add_dependency("wlang", "~> 2.0")
 
   # The version of ruby required by this gem

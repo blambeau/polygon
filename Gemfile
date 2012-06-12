@@ -1,10 +1,9 @@
 source 'http://rubygems.org'
 
 group :runtime do
-  gem "epath", "~> 0.2.0"
   gem "json", ">= 0"
-  gem "sinatra", :path => "../sinatra"
-  gem "wlang",   :path => "../wlang"
+  gem "sinatra", :git => "git://github.com/sinatra/sinatra"
+  gem "wlang", "~> 2.0"
 end
 
 group :development do
