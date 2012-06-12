@@ -8,5 +8,6 @@ module Polygon
 
 end # module Polygon
 require 'polygon/entry'
+require 'polygon/database'
 require 'polygon/helpers'
 require 'polygon/base'
