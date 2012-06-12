@@ -35,3 +35,4 @@ module Polygon
 
 end
 require 'polygon/script/launch'
+require 'polygon/script/gsub'
