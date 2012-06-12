@@ -4,6 +4,7 @@ group :runtime do
   gem "json", ">= 0"
   gem "sinatra", :git => "git://github.com/sinatra/sinatra"
   gem "wlang", "~> 2.0"
+  gem "alf", "~> 0.12.1"
 end
 
 group :development do
