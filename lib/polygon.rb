@@ -1,6 +1,6 @@
 require "polygon/version"
 require "polygon/loader"
-require "polygon/core_ext/epath"
+require "polygon/core_ext"
 #
 # A web framework powered by sinatra for mostly static websites
 #
