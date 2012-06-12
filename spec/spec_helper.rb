@@ -4,7 +4,7 @@ require 'polygon'
 module Helpers
 
   def fixtures_path
-    Path.dir / "../test/fixtures"
+    Path.dir / "fixtures"
   end
 
 end
