@@ -40,7 +40,7 @@ module Polygon
     def enable_ruby!(*ext)
       ext = [".rb", ".ruby"] if ext.empty?
       register(*ext) do |f| 
-        ::Kernel.eval(f.read, TOPLEVEL_BINDING, f.to_s) 
+        ::Kernel.eval(f.read, TOPLEVEL_BINDING, f.to_s)
       end
     end
 
