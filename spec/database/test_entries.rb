@@ -17,5 +17,10 @@ module Polygon
       end
     end
 
+    it 'iterates tuples with entries of different paths' do
+      paths = subject.map{|t| t[:entry].relative_path.to_s }.uniq
+      paths.size.should eq(subject.to_a.size)
+    end
+
   end
 end
