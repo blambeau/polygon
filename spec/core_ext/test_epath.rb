@@ -23,6 +23,10 @@ describe Path, "core extensions" do
     load('text.md').should eq("content" => "This is the text")
   end
 
+  it 'load .md correctly, when empty front matter' do
+    load('empty.md').should eq("content" => "This is the text\n")
+  end
+
   it 'load .md correctly, when a front matter' do
     load('data.md').should eq("kind" => "md", "content" => "This is the text")
   end

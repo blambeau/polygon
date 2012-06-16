@@ -9,7 +9,7 @@ class Path
     require 'yaml'
     content = path.read
     if content =~ /^(---\s*\n.*?\n?)^(---\s*$\n?)/m
-      YAML::load($1).merge("content" => $')
+      (YAML::load($1) || {}).merge("content" => $')
     else
       {"content" => content}
     end
