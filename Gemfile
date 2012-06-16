@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 group :runtime do
   gem "json", ">= 0"
   gem "sinatra", :git => "git://github.com/sinatra/sinatra"
-  gem "wlang", "~> 2.0"
+  gem "wlang", :git => "git://github.com/blambeau/wlang", :branch => :wlang2
   gem "alf", "~> 0.12.2"
   gem "quickl", "~> 0.4.2"
 end
