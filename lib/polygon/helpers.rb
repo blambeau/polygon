@@ -13,8 +13,12 @@ module Polygon
       settings.templates
     end
 
+    def database
+      settings.database
+    end
+
     def lispy(&bl)
-      @lispy ||= Alf.lispy(settings.database)
+      @lispy ||= Alf.lispy(database)
       bl ? @lispy.evaluate(&bl) : @lispy
     end
 
