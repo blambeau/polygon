@@ -13,28 +13,30 @@ module Polygon
     end
 
     def dataset(name)
-      if name == :entries
-        Entries.new(root, options)
+      if self.respond_to?(name)
+        send(name)
       else
         raise Alf::NoSuchDatasetError, "No such dataset `#{name}`"
       end
     end
 
     def entries
-      dataset(:entries)
+      @entries ||= Entries.new(root, options)
     end
 
     def sitemap
-      entry2path = Proc.new{ |entry|
-        path = entry.relative_path.rm_ext
-        path = entry.index? ? path.parent : path
-        path = path == Path('.') ? Path("") : path
-        path.to_s
-      }
-      Alf.lispy(self).compile do
-        (extend :entries,
-                :path    => proc{ entry2path.call(entry)                },
-                :lastmod => proc{ entry.path.mtime.strftime("%Y-%m-%d") })
+      @sitemap ||= begin
+        entry2path = Proc.new{ |entry|
+          path = entry.relative_path.rm_ext
+          path = entry.index? ? path.parent : path
+          path = path == Path('.') ? Path("") : path
+          path.to_s
+        }
+        Alf.lispy(self).compile do
+          (extend :entries,
+                  :path    => proc{ entry2path.call(entry)                },
+                  :lastmod => proc{ entry.path.mtime.strftime("%Y-%m-%d") })
+        end
       end
     end
 

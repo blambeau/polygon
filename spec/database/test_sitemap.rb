@@ -6,6 +6,10 @@ module Polygon
 
     subject{ database.sitemap }
 
+    it 'is returned by dataset' do
+      subject.should eq(database.dataset(:sitemap))
+    end
+
     it 'returns a Alf::Iterator' do
       subject.should be_a(Alf::Iterator)
     end
