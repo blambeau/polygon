@@ -24,6 +24,20 @@ module Polygon
       dataset(:entries)
     end
 
+    def sitemap
+      entry2path = Proc.new{ |entry|
+        path = entry.relative_path.rm_ext
+        path = entry.index? ? path.parent : path
+        path = path == Path('.') ? Path("") : path
+        path.to_s
+      }
+      Alf.lispy(self).compile do
+        (extend :entries,
+                :path    => proc{ entry2path.call(entry)                },
+                :lastmod => proc{ entry.path.mtime.strftime("%Y-%m-%d") })
+      end
+    end
+
     class Entries
       include Alf::Iterator
 
