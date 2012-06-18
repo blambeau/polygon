@@ -56,6 +56,10 @@ template-info:
       description: Boostrap javascript components
       safe-override: true
       wlang-dialect: ~
+    content/static/js/libs/html5.min.js:
+      description: HTML5 lightweight modernizer for IE9
+      safe-override: true
+      wlang-dialect: ~
     content/static/js/libs/jquery.min.js:
       description: jQuery library
       safe-override: true
