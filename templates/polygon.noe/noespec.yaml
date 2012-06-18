@@ -1,0 +1,210 @@
+template-info:
+  name: "!{template_name}"
+  version: 0.1.0
+  summary: |
+    Template for creating a polygon website
+  description: |
+    This is a [Noe](https://github.com/blambeau/noe) template for creating a polygon
+    website.
+  authors:
+    - {name: Bernard Lambeau, email: blambeau at gmail.com}
+  links:
+    source: git://github.com/blambeau/polygon.noe.git
+    documentation: https://github.com/blambeau/polygon.noe
+  manifest:
+    config/development.ru:
+      description: Rackup file for launching in development
+      safe-override: true
+      wlang-dialect: ~
+    config/production.ru:
+      description: Rackup file for launching in production
+      safe-override: true
+      wlang-dialect: ~
+    content/dynamic/index.md:
+      description: Main index file
+      safe-override: false
+      wlang-dialect: wlang/active-string
+    content/static/css/bootstrap.min.css:
+      description: Bootstrap from twitter
+      safe-override: true
+      wlang-dialect: ~
+    content/static/css/bootstrap-responsive.min.css:
+      description: Responsive design with bootstrap
+      safe-override: true
+      wlang-dialect: ~
+    content/static/css/style.css:
+      description: Generated css file
+      safe-override: false
+      wlang-dialect: ~
+    content/static/img/glyphicons-halflings.png:
+      description: Bootstrap images
+      safe-override: true
+      wlang-dialect: ~
+    content/static/img/glyphicons-halflings-white.png:
+      description: Bootstrap images in white
+      safe-override: true
+      wlang-dialect: ~
+    content/static/js/script.js:
+      description: Javascripts for the website
+      safe-override: false
+      wlang-dialect: ~
+    content/static/js/plugins.js:
+      description: jQuery plugins
+      safe-override: false
+      wlang-dialect: ~
+    content/static/js/libs/bootstrap.min.js:
+      description: Boostrap javascript components
+      safe-override: true
+      wlang-dialect: ~
+    content/static/js/libs/jquery.min.js:
+      description: jQuery library
+      safe-override: true
+      wlang-dialect: ~
+    content/static/js/libs/modernizr.min.js:
+      description: Modernizr library
+      safe-override: true
+      wlang-dialect: ~
+    content/static/.htaccess:
+      description: Apache configuration file
+      safe-override: true
+      wlang-dialect: ~
+    content/static/404.html:
+      description: Default not found html page
+      safe-override: true
+      wlang-dialect: ~
+    content/static/500.html:
+      description: Default error html page
+      safe-override: true
+      wlang-dialect: wlang/xhtml
+    content/static/crossdomain.xml:
+      description: Cross-domain policy
+      safe-override: true
+      wlang-dialect: ~
+    content/static/favicon.ico:
+      description: Icon for the website
+      safe-override: false
+      wlang-dialect: ~
+    content/static/robots.txt:
+      description: Info for robots
+      safe-override: true
+      wlang-dialect: wlang/active-string
+    content/static/humans.txt:
+      description: Info for humans
+      safe-override: true
+      wlang-dialect: wlang/active-string
+    design/stylesheets/style.less:
+      description: Main stylesheet in Less
+      safe-override: false
+      wlang-dialect: ~
+    design/views/layouts/html5.wlang:
+      description: HTML5 layout
+      safe-override: true
+      wlang-dialect: wlang/active-string
+      wlang-braces: parentheses
+    design/views/index.wlang:
+      description: Main index page
+      safe-override: false
+      wlang-dialect: ~
+    design/views/sitemap.wlang:
+      description: Sitemap.xml layout
+      safe-override: true
+      wlang-dialect: ~
+    lib/app.rb:
+      description: Main Polygon application
+      safe-override: false
+      wlang-dialect: ~
+    lib/helpers.rb:
+      description: Helpers for the main application
+      safe-override: false
+      wlang-dialect: ~
+    logs/.gitignore:
+      description: Files to be ignored by git or another version control system
+      safe-override: false
+      wlang-dialect: ~
+    scripts/gsub.rb:
+      description: Helper script for search and replace
+      safe-override: true
+      wlang-dialect: ~
+    scripts/launch.rb:
+      description: Helper script for launching the application
+      safe-override: true
+      wlang-dialect: ~
+    spec/helper.rb:
+      description: Helpers for RSpec tests
+      safe-override: true
+      wlang-dialect: ~
+    spec/test_404.rb:
+      description: RSpec test for a page not found
+      safe-override: true
+      wlang-dialect: ~
+    spec/test_content.rb:
+      description: RSpec test for all dynamic content
+      safe-override: true
+      wlang-dialect: ~
+    spec/test_robots.rb:
+      description: RSpec test for the humans.txt file
+      safe-override: true
+      wlang-dialect: ~
+    spec/test_index.rb:
+      description: RSpec test for the index page
+      safe-override: false
+      wlang-dialect: wlang/xhtml
+    spec/test_humans.rb:
+      description: RSpec test for the robots.txt file
+      safe-override: true
+      wlang-dialect: ~
+    spec/test_root.rb:
+      description: RSpec test for the site root
+      safe-override: true
+      wlang-dialect: ~
+    spec/test_script_tags.rb:
+      description: RSpec test for <script> tags
+      safe-override: true
+      wlang-dialect: ~
+    spec/test_sitemap.rb:
+      description: RSpec test for the sitemap.xml file
+      safe-override: true
+      wlang-dialect: ~
+    spec/test_stylesheet_tags.rb:
+      description: RSpec test for <link > stylesheet tags
+      safe-override: true
+      wlang-dialect: ~
+    tmp/restart.txt:
+      description: Marker for passenger (restart application)
+      safe-override: true
+      wlang-dialect: ~
+    config.ru:
+      description: config.ru file for apache+passenger deployment
+      safe-override: true
+      wlang-dialect: ~
+    Gemfile:
+      description: Description file for gem dependencies
+      safe-override: false
+      wlang-dialect: ~
+    Guardfile:
+      description: Description file for guard
+      safe-override: true
+      wlang-dialect: ~
+    Rakefile:
+      description: Description file for rake tasks
+      safe-override: true
+      wlang-dialect: ~
+    .gitignore:
+      description: Files to be ignored by git or another version control system
+      safe-override: false
+      wlang-dialect: ~
+variables:
+  title: Hello World!
+  url: owner-url.com
+  team:
+    - title:    Owner
+      name:     Owner's name
+      site:     owner-url.com
+      location: Owner's location
+    - title:    Developer
+      name:     Bernard Lambeau
+      site:     blambeau at gmail
+      twitter:  blambeau
+      location: Namur, Belgium
+  bootstrap:
+    responsive: false
