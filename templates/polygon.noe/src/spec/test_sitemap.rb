@@ -28,7 +28,10 @@ describe "/sitemap.xml" do
     url = tuple[:path]
 
     describe url do
-      before { head(url)            }
+      before {
+        head(url)
+        follow_redirect! if status==302
+      }
       specify{ status.should == 200 }
     end
   end

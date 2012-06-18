@@ -3,6 +3,7 @@ describe "/" do
 
   before do
     get '/'
+    follow_redirect! if status==302
   end
 
   it 'respond' do
