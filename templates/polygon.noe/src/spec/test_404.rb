@@ -1,11 +1,11 @@
 require 'helper'
-describe "/" do
+describe "/this/is-not-an-existing-page" do
 
   before do
     get '/this/is-not-an-existing-page'
   end
 
-  it 'not respond' do
+  it 'does not respond' do
     status.should == 404
     content_type.should =~ %r{text/html}
     body.should =~ %r{<title>Page Not Found}
