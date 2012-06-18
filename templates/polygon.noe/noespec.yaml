@@ -179,7 +179,7 @@ template-info:
       wlang-dialect: ~
     Gemfile:
       description: Description file for gem dependencies
-      safe-override: false
+      safe-override: true
       wlang-dialect: ~
     Guardfile:
       description: Description file for guard
@@ -191,7 +191,7 @@ template-info:
       wlang-dialect: ~
     .gitignore:
       description: Files to be ignored by git or another version control system
-      safe-override: false
+      safe-override: true
       wlang-dialect: ~
 variables:
   title: Hello World!
