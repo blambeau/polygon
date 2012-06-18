@@ -169,8 +169,8 @@ template-info:
       description: RSpec test for <link > stylesheet tags
       safe-override: true
       wlang-dialect: ~
-    tmp/restart.txt:
-      description: Marker for passenger (restart application)
+    tmp/.gitkeep:
+      description: Marker for git
       safe-override: true
       wlang-dialect: ~
     config.ru:
