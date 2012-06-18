@@ -26,16 +26,10 @@ module Polygon
 
     def sitemap
       @sitemap ||= begin
-        entry2path = Proc.new{ |entry|
-          path = entry.relative_path.rm_ext
-          path = entry.index? ? path.parent : path
-          path = path == Path('.') ? Path("") : path
-          path.to_s
-        }
         Alf.lispy(self).compile do
           (extend :entries,
-                  :path    => proc{ entry2path.call(entry)                },
-                  :lastmod => proc{ entry.path.mtime.strftime("%Y-%m-%d") })
+                  :path    => lambda{ entry.relative_path.to_url            },
+                  :lastmod => lambda{ entry.path.mtime.strftime("%Y-%m-%d") })
         end
       end
     end

@@ -15,4 +15,11 @@ class Path
     end
   end
 
+  def to_url
+    path = self.rm_ext
+    path = path.dir if path.basename.to_s == 'index'
+    path = path == Path('.') ? Path("") : path
+    path.to_s
+  end
+
 end
