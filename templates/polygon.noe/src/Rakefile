@@ -3,9 +3,9 @@ $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), 'lib'))
 desc %q{Regenerates CSS stylesheet} 
 task :css do
   Dir.chdir(File.dirname(__FILE__)) do
+    `lessc design/stylesheets/*.less > public/css/style.css`
     `cp -R design/stylesheets/* public/css/`
     `rm -rf public/css/*.less`
-    `lessc design/stylesheets/*.less > public/css/style.css`
   end
 end
 
