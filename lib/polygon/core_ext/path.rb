@@ -1,4 +1,3 @@
-require 'epath'
 class Path
 
   register_loader '.rb', '.ruby' do |path|

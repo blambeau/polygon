@@ -2,10 +2,11 @@ source 'http://rubygems.org'
 
 group :runtime do
   gem "json", ">= 0"
-  gem "sinatra", :git => "git://github.com/sinatra/sinatra"
-  gem "wlang", :git => "git://github.com/blambeau/wlang", :branch => :wlang2
+  gem "sinatra", "~> 1.3"
+  gem "wlang", "~> 2.1.1"
   gem "alf", "~> 0.12.2"
   gem "quickl", "~> 0.4.2"
+  gem "path", "~> 1.3.1"
 end
 
 group :development do
