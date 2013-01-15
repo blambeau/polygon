@@ -1,41 +1,49 @@
 module Polygon
-  class Database < Alf::Environment
+  module Database
+    include Alf::Viewpoint
 
-    attr_reader :root, :options
+    class Adapter < Alf::Adapter
 
-    def initialize(root, options = {})
-      @root    = Path(root)
-      @options = default_options.merge(options)
-    end
-
-    def default_options
-      { :extensions => ["yml", "md"] }
-    end
-
-    def dataset(name)
-      if self.respond_to?(name)
-        send(name)
-      else
-        raise Alf::NoSuchDatasetError, "No such dataset `#{name}`"
+      def self.recognizes?(conn_spec)
+        Path.like?(conn_spec) && Path(conn_spec).directory?
       end
-    end
 
-    def entries
-      @entries ||= Entries.new(root, options)
-    end
+      def connection
+        Connection.new(Path(conn_spec))
+      end
+
+      Adapter.register(:polygon, self)
+    end # class Adapter
+
+    class Connection < Alf::Adapter::Connection
+
+      alias :folder :conn_spec
+
+      def default_options
+        { :extensions => ["yml", "md"] }
+      end
+
+      def knows?(name)
+        name == :entries
+      end
+
+      # Returns a cog for `name`
+      def cog(name)
+        raise Alf::NoSuchRelvarError, "Unable to find a file for #{name}" unless knows?(name)
+        Entries.new(folder, default_options)
+      end
+
+    end # class Connection
+
+    native :entries
 
     def sitemap
-      @sitemap ||= begin
-        Alf.lispy(self).compile do
-          (extend :entries,
-                  :path    => lambda{ entry.relative_path.to_url            },
-                  :lastmod => lambda{ entry.path.mtime.strftime("%Y-%m-%d") })
-        end
-      end
+      extend(entries,
+             path:    ->{ entry.relative_path.to_url            },
+             lastmod: ->{ entry.path.mtime.strftime("%Y-%m-%d") })
     end
 
     class Entries
-      include Alf::Iterator
 
       def initialize(root, options)
         @root    = root
@@ -43,6 +51,7 @@ module Polygon
       end
 
       def each
+        return to_enum unless block_given?
         extensions = @options[:extensions]
         @root.glob("**/*").each do |file|
           next unless file.file? and extensions.include?(file.ext)
@@ -53,5 +62,5 @@ module Polygon
 
     end # class Entries
 
-  end # class Database
+  end # module Database
 end # class Polygon

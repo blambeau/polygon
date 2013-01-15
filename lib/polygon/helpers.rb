@@ -14,12 +14,7 @@ module Polygon
     end
 
     def database
-      settings.database
-    end
-
-    def lispy(&bl)
-      @lispy ||= Alf.lispy(database)
-      bl ? @lispy.evaluate(&bl) : @lispy
+      Polygon.connection(settings.doc_folder)
     end
 
     def in_production
@@ -39,12 +34,13 @@ module Polygon
     end
 
     def page_locals(path = "")
-      rel = lispy do
-        (unwrap \
-          (extend (restrict :sitemap, :path => path),
-                  :data => lambda{ entry.to_hash }),
-          :data)
-      end
+      rel = database.relvar{
+        unwrap(
+          extend(
+            restrict(sitemap, path: path),
+          data: ->{ entry }),
+        :data)
+      }
       rel && rel.to_a.first
     end
     alias :index_locals :page_locals

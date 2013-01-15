@@ -2,16 +2,12 @@ require 'spec_helper'
 module Polygon
   describe Database, "entries" do
 
-    let(:database){ Database.new fixtures_path }
+    let(:connection){ Polygon.connection(fixtures_path) }
 
-    subject{ database.entries }
+    subject{ connection.query{ entries } }
 
-    it 'is returned by dataset' do
-      subject.should eq(database.dataset(:entries))
-    end
-
-    it 'returns a Alf::Iterator' do
-      subject.should be_a(Alf::Iterator)
+    it 'should be a Relation' do
+      subject.should be_a(Relation)
     end
 
     it 'iterates tuples with entries' do
