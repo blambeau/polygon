@@ -2,8 +2,8 @@ module Polygon
   module Version
 
     MAJOR = 0
-    MINOR = 1
-    TINY  = 0
+    MINOR = 9
+    TINY  = 1
 
     def self.to_s
       [ MAJOR, MINOR, TINY ].join('.')
