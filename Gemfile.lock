@@ -1,13 +1,11 @@
 GIT
-  remote: git://github.com/alf-tool/alf
-  revision: e75c4d37a9c116d18f8ed0240364b2558e1f78f6
+  remote: git://github.com/alf-tool/alf-core
+  revision: c41dbe999444c785587c63fd3382017b97a12419
   specs:
-    alf (0.13.0)
-      backports (~> 2.6)
+    alf-core (0.13.0)
       domain (~> 1.0.0.rc4)
       myrrha (~> 3.0.0.rc7)
       path (~> 1.3)
-      quickl (~> 0.4.3)
       sexpr (~> 0.5.1)
 
 GEM
@@ -54,7 +52,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  alf!
+  alf-core!
   bluecloth (~> 2.2)
   bundler (~> 1.0)
   json

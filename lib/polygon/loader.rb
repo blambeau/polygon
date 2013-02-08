@@ -1,6 +1,6 @@
 require "json"
 require "sinatra"
 require "wlang"
-require "alf"
+require "alf-core"
 require "quickl"
 require "path"

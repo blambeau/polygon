@@ -6,7 +6,7 @@ group :runtime do
   gem "wlang", "~> 2.1.1"
   gem "quickl", "~> 0.4.2"
   gem "path", "~> 1.3.1"
-  gem "alf", :git => "git://github.com/alf-tool/alf"
+  gem "alf-core", :git => "git://github.com/alf-tool/alf-core"
 end
 
 group :development do
