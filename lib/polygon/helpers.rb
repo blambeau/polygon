@@ -30,7 +30,7 @@ module Polygon
     end
 
     def sitemap_locals
-      { :urls => database.sitemap }
+      { :urls => database.query{ sitemap } }
     end
 
     def page_locals(path = "")
