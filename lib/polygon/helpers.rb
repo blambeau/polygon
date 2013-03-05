@@ -33,7 +33,14 @@ module Polygon
       index_locals.merge(:urls => database.query{ sitemap })
     end
 
+    def normalize_path(path)
+      path = path[1..-1] if path =~ /^\//
+      path = path[0...-1] if path =~ /\/$/
+      path
+    end
+
     def page_locals(path = "")
+      path = normalize_path(path)
       rel = database.relvar{
         unwrap(
           extend(
