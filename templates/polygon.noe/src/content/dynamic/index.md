@@ -1,4 +1,5 @@
 ---
+url: ${url}
 lang: en
 title: ${title}
 description: ${title}

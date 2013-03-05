@@ -14,14 +14,27 @@ describe "/sitemap.xml" do
     body.should =~ %r{<url>}
   end
 
-  it 'contains expected urls' do
-    urls = []
-    body.scan %r{<loc>http://[^\/]+/(.*)</loc>} do |match|
-      urls << match.first
+  describe "the mapped urls" do
+
+    let(:got) do
+      urls = []
+      body.scan %r{<loc>http://[^\/]+/(.*)</loc>} do |match|
+        urls << match.first.gsub('&#47;', '/')
+      end
+      Relation(:path => urls)
     end
-    expected = database.query{ sitemap }.project([:path])
-    got      = Relation(:path => urls)
-    got.should eq(expected)
+
+    let(:expected) do
+      database.query{ sitemap }.project([:path])
+    end
+
+    it 'is not larger' do
+      (got - expected).should be_empty
+    end
+
+    it 'is not smaller' do
+      (expected - got).should be_empty
+    end
   end
 
   database.query{ sitemap }.each do |tuple|
