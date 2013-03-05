@@ -85,6 +85,7 @@ module Polygon
         Process.kill("SIGHUP", thinpid) if thinpid
       ensure
         Process.wait(thinpid) if thinpid
+        flush_logs
       end
 
     end # class Launch
