@@ -47,5 +47,5 @@ module Polygon
   end
 
 end
-require 'polygon/script/launch'
+require 'polygon/script/open'
 require 'polygon/script/gsub'

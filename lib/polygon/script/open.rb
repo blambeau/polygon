@@ -1,6 +1,6 @@
 module Polygon
   module Script
-    class Launch < Polygon::Script(__FILE__, __LINE__)
+    class Open < Polygon::Script(__FILE__, __LINE__)
 
       attr_accessor :mode, :refresh_repo, :sync_repo, :bundle, :open_browser, :try, :max
 
@@ -88,6 +88,7 @@ module Polygon
         flush_logs
       end
 
-    end # class Launch
+    end # class Open
+    Launch = Open
   end # module Script
 end # module Polygon
