@@ -1,4 +1,4 @@
-Encoding.default_external = Encoding::UTF_8 if RUBY_VERSION > "1.9"
+Encoding.default_external = Encoding::UTF_8
 
 # set development environment and launch dependencies
 ENV["RACK_ENV"] = "development"
