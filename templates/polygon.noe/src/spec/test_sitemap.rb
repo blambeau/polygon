@@ -19,12 +19,12 @@ describe "/sitemap.xml" do
     body.scan %r{<loc>http://[^\/]+/(.*)</loc>} do |match|
       urls << match.first
     end
-    expected = database.sitemap.to_rel.project([:path])
+    expected = database.query{ sitemap }.project([:path])
     got      = Relation(:path => urls)
     pending{ got.should eq(expected) }
   end
 
-  database.sitemap.each do |tuple|
+  database.query{ sitemap }.each do |tuple|
     url = tuple[:path]
 
     describe url do

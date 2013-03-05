@@ -9,7 +9,7 @@ describe "The dynamic site content" do
     end
   end
 
-  database.entries.each do |tuple|
+  database.cog(:entries).each do |tuple|
     entry = tuple[:entry]
 
     describe "#{entry.relative_path}" do

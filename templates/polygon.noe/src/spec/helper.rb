@@ -12,7 +12,7 @@ RSpec.configure do |c|
   end
 
   def database
-    app.settings.database
+    Polygon.connection(app.doc_folder)
   end
 
   def internal?(link)
