@@ -2,7 +2,7 @@ module Polygon
   module Script
     class Launch < Polygon::Script(__FILE__, __LINE__)
 
-      attr_accessor :mode, :refresh_repo, :open_browser, :try, :max
+      attr_accessor :mode, :refresh_repo, :sync_repo, :bundle, :open_browser, :try, :max
 
       def config_ru
         root/:config/"#{mode}.ru"
@@ -17,6 +17,14 @@ module Polygon
         self.refresh_repo = true
         opt.on('--[no-]refresh', "Issues a 'git remote update' first?") do |value|
           self.refresh_repo = value
+        end
+        self.sync_repo = true
+        opt.on('--[no-]sync', "Issues a 'git rebase origin/master' first?") do |value|
+          self.refresh_repo = value
+        end
+        self.bundle = true
+        opt.on('--[no-]bundle', "Issues a 'bundle' first?") do |value|
+          self.bundle = value
         end
         self.open_browser = true
         opt.on('--[no-]browser', "Open the browser automatically?") do |value|
@@ -49,7 +57,16 @@ module Polygon
 
         info "Refreshing repository info..." do
           Process.wait spawn("git remote update")
+          Process.wait spawn("git fetch origin")
         end if refresh_repo
+
+        info "Syncing repository..." do
+          Process.wait spawn("git pull origin master")
+        end if sync_repo
+
+        info "Bundling..." do
+          Process.wait spawn("bundle")
+        end if bundle
 
         thinpid = nil
         info "Starting the web server..." do
