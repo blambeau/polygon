@@ -21,7 +21,7 @@ describe "/sitemap.xml" do
     end
     expected = database.query{ sitemap }.project([:path])
     got      = Relation(:path => urls)
-    pending{ got.should eq(expected) }
+    got.should eq(expected)
   end
 
   database.query{ sitemap }.each do |tuple|
