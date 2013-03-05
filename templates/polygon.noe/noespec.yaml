@@ -105,6 +105,11 @@ template-info:
       safe-override: true
       wlang-dialect: wlang/active-string
       wlang-braces: parentheses
+    design/views/layouts/common.wlang:
+      description: Common body layout
+      safe-override: false
+      wlang-dialect: wlang/active-string
+      wlang-braces: parentheses
     design/views/index.wlang:
       description: Main index page
       safe-override: false
