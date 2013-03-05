@@ -5,7 +5,7 @@ describe "script tags at /" do
     get '/'
   end
 
-  it 'refer to accessible stylesheets' do
+  it 'refer to accessible scripts' do
     body.scan %r{<script.*src="(.*?)"} do |match|
       head (js = match.first)
       next unless internal?(js)
