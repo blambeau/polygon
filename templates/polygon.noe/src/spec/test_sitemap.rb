@@ -18,7 +18,7 @@ describe "/sitemap.xml" do
 
     let(:got) do
       urls = []
-      body.scan %r{<loc>http://[^\/]+/(.*)</loc>} do |match|
+      body.gsub('&#47;', '/').scan %r{<loc>http://[^\/]+/(.*)</loc>} do |match|
         urls << match.first.gsub('&#47;', '/')
       end
       Relation(:path => urls)
