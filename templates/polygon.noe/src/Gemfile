@@ -1,9 +1,10 @@
 source :rubygems
 
 gem "redcarpet", "~> 2.0.1"  
-gem "sinatra", :git => "git://github.com/sinatra/sinatra"
-gem "polygon", :git => "git://github.com/blambeau/polygon"
-gem 'wlang',   :git => "git://github.com/blambeau/wlang", :branch => :wlang2
+gem "sinatra",  :git => "git://github.com/sinatra/sinatra"
+gem "polygon",  :git => "git://github.com/blambeau/polygon"
+gem "alf-core", :git => "git://github.com/alf-tool/alf-core"
+gem 'wlang',    :git => "git://github.com/blambeau/wlang", :branch => :wlang2
 
 group :development do
   gem "eventmachine", "~> 1.0.0.beta.4"
