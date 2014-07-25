@@ -70,7 +70,7 @@ module Polygon
 
         thinpid = nil
         info "Starting the web server..." do
-          thinpid = spawn("thin -R #{config_ru} start")
+          thinpid = spawn("thin -R \"#{config_ru}\" start")
         end
 
         info "Waiting for the server to start" do
