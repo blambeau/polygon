@@ -1,6 +1,7 @@
-# 1.0.0 / FIX ME
+# 0.10.0 / 2013-07-25
 
-* alf bumped to 0.13.0
+* Alf dependency bumped to 0.16(.3)
+* Renamed Launch script as Open.
 
 # 0.9.1 / 2012-01-15
 
