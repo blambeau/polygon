@@ -1,3 +1,8 @@
+# 0.10.1 / 2013-07-25
+
+* Ensure path is quoted when attempting to use a config.ru file in Open
+  script.
+
 # 0.10.0 / 2013-07-25
 
 * Alf dependency bumped to 0.16(.3)

@@ -7,7 +7,7 @@ variables:
   upper:
     Polygon
   version:
-    0.10.0
+    0.10.1
   summary: |-
     A web framework powered by sinatra for mostly static websites
   description: |-
