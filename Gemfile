@@ -4,7 +4,7 @@ group :runtime do
   gem "json", ">= 0"
   gem "sinatra", "~> 1.3"
   gem "wlang", "~> 2.1"
-  gem "alf-core", :git => "git://github.com/alf-tool/alf-core"
+  gem "alf-core", "~> 0.16"
   gem "quickl", "~> 0.4.2"
   gem "path", "~> 1.3"
   gem "http", "~> 0.0.1"

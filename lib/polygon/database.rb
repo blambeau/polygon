@@ -28,7 +28,8 @@ module Polygon
       end
 
       # Returns a cog for `name`
-      def cog(name)
+      def cog(plan, expr)
+        name = expr.name
         raise Alf::NoSuchRelvarError, "Unable to find a file for #{name}" unless knows?(name)
         Entries.new(folder, default_options)
       end
@@ -58,6 +59,14 @@ module Polygon
           entry = Entry.new(@root, file % @root)
           yield(:entry => entry)
         end
+      end
+
+      def compiler
+        nil
+      end
+
+      def to_relation
+        Relation(each.to_a)
       end
 
     end # class Entries

@@ -12,7 +12,7 @@ require 'polygon/dialect'
 #
 module Polygon
 
-  DEFAULT_OPTIONS = { default_viewpoint: Database }
+  DEFAULT_OPTIONS = { viewpoint: Database }
 
   def self.database(path, options = {})
     options = DEFAULT_OPTIONS.merge(options)
