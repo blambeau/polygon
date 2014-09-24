@@ -23,5 +23,7 @@ Thumbs.db
 logs/*.log
 tmp/restart.txt
 .bundle
+bundle
 vendor
 vendor/bundle
+scripts/launch.command
