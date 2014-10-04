@@ -18,7 +18,6 @@ variables:
   links:
     - http://github.com/blambeau/polygon
   dependencies:
-    - {name: json,      version: ">= 0",      groups: [runtime]}
     - {name: sinatra,   version: "~> 1.4",    groups: [runtime]}
     - {name: wlang,     version: "~> 2.1",    groups: [runtime]}
     - {name: alf-core,  version: "~> 0.16",   groups: [runtime]}
