@@ -47,7 +47,7 @@ module Polygon
     def enable_yaml_front_matter!(*ext)
       ext = [".md"] if ext.empty?
       register(*ext) do |f| 
-        content = f.read.force_encoding(Encoing::UTF_8)
+        content = f.read.force_encoding(Encoding::UTF_8)
         if content =~ /^(---\s*\n.*?\n?)^(---\s*$\n?)/m
           YAML::load($1).merge("content" => $')
         else
