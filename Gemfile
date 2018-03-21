@@ -3,7 +3,6 @@ source 'http://rubygems.org'
 group :runtime do
   gem "sinatra", "~> 1.3"
   gem "epath", "~> 0.2.0"
-  gem "json", ">= 0"
   gem "wlang", "~> 0.10.2"
 end
 
